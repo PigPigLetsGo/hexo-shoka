@@ -207,34 +207,34 @@ minify:
     exclude:
       - '**/*.min.js'
 
-valine:
-  appId: wdsNlBUj9JciEmqYqF8X7rSK-gzGzoHsz
-  appKey: sxgx5PvvR9JDk4fEhCYX8muE
-  placeholder: "ヽ(○´∀`)ﾉ♪ ~~~ 快来评论把，使用说明如下：\n💥1.名字随便填写\n📸2.输入自己的QQ邮箱\n💣3.网站可以不填写\n⚡前两个完成后就可以评论啦!!!" # Comment box placeholder
-  avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
-  pageSize: 10 # Pagination size
-  lang: zh-CN
-  visitor: true # Article reading statistic
-  NoRecordIP: false # Whether to record the commenter IP
-  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
-  powerMode: true
-  tagMeta:
-    visitor: 新朋友
-    master: 主人
-    friend: 小伙伴
-    investor: 金主粑粑
-  tagColor:
-    master: "var(--color-orange)"
-    friend: "var(--color-aqua)"
-    investor: "var(--color-pink)"
-  tagMember:
-    master:
-      - hash of 9afe0829273a7910bdfceead731785a0
-    friend:
-      # - hash of friend@email.com
-      # - hash of friend2@email.com
-    investor:
-      # - hash of investor1@email.com
+#valine:
+#  appId: wdsNlBUj9JciEmqYqF8X7rSK-gzGzoHsz
+#  appKey: sxgx5PvvR9JDk4fEhCYX8muE
+#  placeholder: "ヽ(○´∀`)ﾉ♪ ~~~ 快来评论把，使用说明如下：\n💥1.名字随便填写\n📸2.输入自己的QQ邮箱\n💣3.网站可以不填写\n⚡前两个完成后就#可以评论啦!!!" # Comment box placeholder
+#  avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
+#  pageSize: 10 # Pagination size
+#  lang: 
+#  visitor: true # Article reading statistic
+#  NoRecordIP: false # Whether to record the commenter IP
+#  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need #to fill in)
+#  powerMode: true
+#  tagMeta:
+#    visitor: 新朋友
+#    master: 主人
+#    friend: 小伙伴
+#    investor: 金主粑粑
+#  tagColor:
+#    master: "var(--color-orange)"
+#    friend: "var(--color-aqua)"
+#    investor: "var(--color-pink)"
+#  tagMember:
+#    master: # 1851644015@qq.com 的 哈希值 可以到leancloud中找meailMd5值,确保是自己邮箱的
+#      - 9afe0829273a7910bdfceead731785a0
+#    friend:
+#      # - hash of friend@email.com
+#      # - hash of friend2@email.com
+#    investor:
+#      # - hash of investor1@email.com
 
 # algolia:
 #   appId:

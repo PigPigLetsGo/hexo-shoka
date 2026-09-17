@@ -9,10 +9,10 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "5.4.2"
+    "version": "4.2.1"
   },
   "dependencies": {
-    "hexo": "^5.0.0",
+    "hexo": "^4.2.1",
     "hexo-autoprefixer": "^2.0.0",
     "hexo-deployer-git": "^2.1.0",
     "hexo-feed": "^1.0.2",
@@ -26,8 +26,8 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
     "hexo-symbols-count-time": "^0.7.1",
-    "hexo-theme-landscape": "^1.0.0",
     "quicklink": "^2.3.0",
+    "stylus": "^0.54.8",
     "webpack-route-manifest": "^1.3.0"
   }
 }
