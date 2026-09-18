@@ -1,11 +1,12 @@
 ---
 title: Scoop安装mysql
 categories:
-   - [tools,windows]
+   - [tools]
 tags: 
    - tools
    - windows
    - mysql
+   - scoop
 ---
 
 ## Scoop安装mysql

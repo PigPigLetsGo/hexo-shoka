@@ -1,7 +1,7 @@
 ---
 title: PowerShell配置ohmyzsh
 categories:
-   - [tools,windows]
+   - [tools]
 tags: 
    - tools
    - windows

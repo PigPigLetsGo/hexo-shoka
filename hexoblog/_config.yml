@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "D の Java"
+title: "D の Blog"
 subtitle: "别怕路长梦远"
-description: "欢迎来我的博客空间"
-keywords: "java,web,c"
+description: "Where the heart wants to go"
+keywords: "DBlog"
 author: "D"
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -61,49 +61,18 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  计算机学科: computer-science
-  数据结构与算法: data-structures-and-algorithms
-  编程题: programming-questions
-  Java: java
-  js: js
-  web: web
-  video: video
-  movie: movie
-  Tvdrama: Tvdrama
-  animation: animation
-  Reality: Reality
-  问题总汇: bug
-  css: css
-  vue: vue
-  vue3: vue3
-  database: databse
-  mongodb: mongodb
-  mysql: mysql
-  hexo: hexo
-  shoka: shoka
-  移动端: 移动端
-  案例代码: 案例代码
-  ECMASCript: ECMASCript
-  WebAPIs: WebAPIs
-  JS进阶: JS进阶
-  正则: 正则
-  redis: redis
-  JDBC: JDBC
-  tools: tools
-  案例Demo: 案例Demo
-  设计模式: 设计模式
-  C: C
-  spring: spring
-  math: math
-  english: english
-  JVM: JVM
-  知识点: 知识点
-  git: git
-  前后端交互: 前后端交互
-  websocket: websocket
-  linux: linux
-  nginx: nginx
+  tools
+  hexo
+  shoka
 tag_map:
+  hexo
+  shoka
+  nodeJs
+  tools
+  windows
+  mysql
+  scoop
+  KeePass
 
 search:
   enable: true

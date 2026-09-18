@@ -1,10 +1,11 @@
 ---
 title: 安装和使用scoop
 categories:
-   - [tools,windows]
+   - [tools]
 tags: 
    - tools
    - windows
+   - scoop
 ---
 
 ## 常用命令

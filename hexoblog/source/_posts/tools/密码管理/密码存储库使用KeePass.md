@@ -1,10 +1,10 @@
 ---
 title: KeePass的使用
 categories:
-    - [tools,密码管理]
+    - [tools]
 tags:
     - tools
-    - 密码管理
+    - KeePass
 ---
 
 官网下载地址：https://keepass.info/
