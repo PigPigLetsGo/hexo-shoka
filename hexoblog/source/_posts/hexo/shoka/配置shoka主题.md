@@ -94,34 +94,10 @@ tags:
 
      -  links：链接 的配置同样的在hexo的source目录中创建links目录然后里面创建index.md文件用于配置链接的页面
 
-     -  `_post`：里面是配置 .md 笔记的，在该目录中创建 目录分类 比如 java目录里面存放java的笔记 易于管理 并且 创建java目录后我们需要在hexo的`_config.yml`文件中进行category_map的配置格式如下：
+     -  `_post`：里面是配置 .md 笔记的，在该目录中创建 目录分类 比如 java目录里面存放java的笔记 易于管理
 
-        ```yaml
-        # Category & Tag
-        default_category: uncategorized
-        category_map:
-          计算机学科: computer-science
-          数据结构与算法: data-structures-and-algorithms
-          编程题: programming-questions
-          Java: java
-          js: js
-          web: web
-          video: video
-          movie: movie
-          Tvdrama: Tvdrama
-          animation: animation
-          Reality: Reality
-          问题总汇: bug
-          css: css
-          vue: vue
-          vue3: vue3
-          database: databse
-          mongodb: mongodb
-          mysql: mysql
-        ```
-
-     -  **注意**：下面还有一个tag_map的配置项，这里并不是配置标签的不要被误导了，标签是在笔记文件中的YAML Front Matter里面配置的tag 选项 具体格式如下：
-
+     -  **注意**：创建的文章中写categories和tags即可，不要去config.yml中配置，那里留空即可：
+     
         ```.md笔记文章
         ---
         title: 这是文章的标题
@@ -134,7 +110,7 @@ tags:
         
         hello world,这里是我的笔记内容
         ```
-
+     
 11.  其它的配置就看个人喜好来配置就好了，至此基本的配置完毕！
 
 ## 精选分类配置
@@ -145,7 +121,7 @@ tags:
 
 **注意**：文章的 categories 的 顺序会对精选分类产生影响的，不要弄混了，建议按照自己建立目录的顺序来写
 
-## 评论区配置
+## 评论区配置(目前已停止服务，暂时不可用)
 
 首先到https://console.leancloud.cn/
 
