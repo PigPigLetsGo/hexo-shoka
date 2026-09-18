@@ -1,5 +1,5 @@
 ---
-title: hexo-4.2.1.tgz我应该解压到哪里
+title: hexo-shoka换电脑部署清单
 categories:
     - [hexo,shoka]
 tags:
