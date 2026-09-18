@@ -61,18 +61,7 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  tools
-  hexo
-  shoka
 tag_map:
-  hexo
-  shoka
-  nodeJs
-  tools
-  windows
-  mysql
-  scoop
-  KeePass
 
 search:
   enable: true
