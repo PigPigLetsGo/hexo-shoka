@@ -1,5 +1,5 @@
 ---
-title: shoka+python本地图片存储
+title: shoka+typora本地图片存储
 date: 2026-09-18 21:18:39
 categories:
     - [shoka]
