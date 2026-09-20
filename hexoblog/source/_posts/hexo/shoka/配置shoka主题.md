@@ -64,13 +64,13 @@ tags:
 
 8.  修改完package.json文件内容后执行下面的命令降级hexo
 
-    -  重新全局安装hexo 5.4.2
+    -  如果已经有hexo了那么重新全局安装hexo 5.4.2
 
        ```bash
        npm install -g hexo@5.4.2
        ```
 
-    -  然后在hexo目录下更新依赖
+    -  如果没有hexo那么然后在hexo目录下更新依赖 (电脑没安装过hexo的推荐)
 
        ```bash
        npm install

@@ -6,7 +6,7 @@ copyright: false
 ---
 
 # 本站信息
-- 站名： Dのjava小窝
+- 站名： Dのblog小窝
 - 站长： D
 - 地址： https://pigpigletsgo.github.io/
 - 标志： ![Dkx](https://raw.githubusercontent.com/PigPigLetsGo/imeages/master/202312311252957.jpg){height="100" width="100"}
