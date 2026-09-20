@@ -156,7 +156,7 @@ minify:
     exclude:
       - '**/*.min.css'
   js:
-    enable: true
+    enable: false
     stamp: false
     mangle:
       toplevel: true
