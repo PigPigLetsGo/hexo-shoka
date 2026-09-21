@@ -78,8 +78,25 @@ tags:
 >
 > ![image-20260918210908670](../../../img/image-20260918210908670.png)
 >
-> 也就是说当执行命令后会在source目录中添加一个 独立页面的目录里面生成一个.md文件来当做一个独立的页面，我们可以自由编辑
+> 也就是说当执行命令后会在source目录中添加一个 独立页面的目录里面生成一个index.md文件来当做一个独立的页面，我们可以自由编辑
 
 命令：`hexo new page "about"`
 
-- 这个source目录自己创建的文件夹不会被当成独立页面展示到页面顶栏的 比如img目录就是自己手动创建存储图片的目录，它不会经过命令来创建的不会被特殊处理的
+- source目录下虽然存在img存放图片的目录但是它并不是独立页面的目录因为里面没有index.md，只有创建index.md才算独立页面
+- 需要在hexogerenboke\hexoblog\themes\shoka\_config.yml中的menu下添加独立页面到博客中 否则不会显示的
+
+```yaml
+menu:
+  home: / || home
+  about: /about/ || user
+  posts:
+    default: / || feather
+    archives: /archives/ || list-alt
+    categories: /categories/ || th
+    tags: /tags/ || tags
+  friends: /friends/ || heart
+  links: /links/ || magic
+#添加自己创建的独立页面比如：news
+  news: /news/ || news
+```
+
