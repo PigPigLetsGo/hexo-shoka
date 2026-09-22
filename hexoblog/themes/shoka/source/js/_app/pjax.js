@@ -13,18 +13,16 @@ const domInit = function() {
   if(!toolBtn) {
     toolBtn = siteHeader.createChild('div', {
       id: 'tool',
-      innerHTML: '<div class="item player"></div><div class="item contents"><i class="ic i-list-ol"></i></div><div class="item chat"><i class="ic i-comments"></i></div><div class="item back-to-top"><i class="ic i-arrow-up"></i><span>0%</span></div>'
+      innerHTML: '<div class="item player"></div><div class="item contents"><i class="ic i-list-ol"></i></div><div class="item back-to-top"><i class="ic i-arrow-up"></i><span>0%</span></div>'
     });
   }
   
 
   toolPlayer = toolBtn.child('.player');
   backToTop = toolBtn.child('.back-to-top');
-  goToComment = toolBtn.child('.chat');
   showContents = toolBtn.child('.contents');
 
   backToTop.addEventListener('click', backToTopHandle);
-  goToComment.addEventListener('click', goToCommentHandle);
   showContents.addEventListener('click', sideBarToggleHandle);
 
   mediaPlayer(toolPlayer)
@@ -56,21 +54,6 @@ const siteRefresh = function (reload) {
   vendorJs('copy_tex');
   vendorCss('mermaid');
   vendorJs('chart');
-  vendorJs('valine', function() {
-    var options = Object.assign({}, CONFIG.valine);
-    options = Object.assign(options, LOCAL.valine||{});
-    options.el = '#comments';
-    options.pathname = LOCAL.path;
-    options.pjax = pjax;
-    options.lazyload = lazyload;
-
-    new MiniValine(options);
-
-    setTimeout(function(){
-      positionInit(1);
-      postFancybox('.v');
-    }, 1000);
-  }, window.MiniValine);
 
   if(!reload) {
     $.each('script[data-pjax]', pjaxScript);
@@ -129,7 +112,7 @@ const siteInit = function () {
     algoliaSearch(pjax)
   }
 
-  algoliaSearch(pjax)
+  //algoliaSearch(pjax)
 
   window.addEventListener('scroll', scrollHandle)
 

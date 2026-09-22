@@ -131,8 +131,7 @@ const postFancybox = function(p) {
 }
 
 const postBeauty = function () {
-  loadComments();
-
+ 
   if(!$('.md'))
     return
 
@@ -403,31 +402,6 @@ const tabFormat = function() {
     box.appendChild(element);
     element.attr('data-ready', true)
   });
-}
-
-const loadComments = function () {
-  var element = $('#comments');
-  if (!element) {
-    goToComment.display("none")
-    return;
-  } else {
-    goToComment.display("")
-  }
-
-  if (!window.IntersectionObserver) {
-    vendorCss('valine');
-  } else {
-    var io = new IntersectionObserver(function(entries, observer) {
-      var entry = entries[0];
-      vendorCss('valine');
-      if (entry.isIntersecting || entry.intersectionRatio > 0) {
-        transition($('#comments'), 'bounceUpIn');
-        observer.disconnect();
-      }
-    });
-
-    io.observe(element);
-  }
 }
 
 const algoliaSearch = function(pjax) {
