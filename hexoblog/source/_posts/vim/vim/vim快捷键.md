@@ -1,10 +1,10 @@
 ---
-title: Vim
+title: vim
 date: 2026-09-26 18:46:43
 categories:
-    - [Vim]
+    - [vim]
 tags:
-    - Vim
+    - vim
 ---
 
 # Vim Markdown 快捷键速查手册
