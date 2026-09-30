@@ -457,6 +457,21 @@ Space + n
 
 ------
 
+# 文件搜索
+
+快捷键
+
+```text
+ff = Find File       找文件
+fg = Find Grep       全文搜索
+fw = Find Word       当前单词
+fb = Find Buffer     Buffer
+fr = Find Recent     最近文件
+fl = Find Line       当前文件行
+gf = Git Files       Git 文件
+fd = Find Directory  当前目录
+```
+
 # 十、EasyMotion
 
 你的 Leader：
@@ -819,6 +834,12 @@ Space + i
 README.md
 ```
 
+快捷键
+
+```vim
+space + mp
+```
+
 然后执行：
 
 ```vim
@@ -834,6 +855,15 @@ README.md
 ```
 
 ------
+
+# Markdown 大纲
+
+快捷键
+
+```vim
+space + mv
+```
+
 
 # 十四、Markdown 表格
 
@@ -959,6 +989,11 @@ C:\Users\18516\Documents\Notes\game-dev.md
 ```text
 :w!
 ```
+
+# 配置字体
+
+下载字体：https://github.com/ryanoasis/nerd-fonts/releases
+下载JetBrainsMono字体安装即可
 
 ------
 

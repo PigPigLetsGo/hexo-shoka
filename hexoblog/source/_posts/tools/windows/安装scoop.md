@@ -24,6 +24,13 @@ tags:
 set-executionpolicy RemoteSigned
 ```
 
+如果报错就以管理员打开PowerShell
+如果管理员打开还是报错执行下面命令
+
+```shell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
 2 输入命令进行安装
 
 ```shell
