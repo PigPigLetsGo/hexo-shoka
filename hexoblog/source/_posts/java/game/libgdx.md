@@ -129,6 +129,48 @@ if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && jg <= 0.0f) {
 }
 ```
 
+### 绘制血条
+
+
+```java
+// 血条总长度
+float barWidth = width;
+float barHeight = 5;
+
+// 血条位置：玩家上方 10 像素
+float barX = x;
+float barY = y + height + 10;
+
+// 背景
+shape.setColor(1, 0, 0, 1);
+shape.rect(
+    barX,
+    barY,
+    barWidth,
+    barHeight
+);
+
+// 当前血量比例
+float hpPercent = hp / 100f;
+
+// 当前血量
+shape.setColor(0, 1, 0, 1);
+shape.rect(
+    barX,
+    barY,
+    barWidth * hpPercent,
+    barHeight
+);
+```
+
+shapeRenderer 要单独绘制
+
+```java
+shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+player.drawHealthBar(shapeRenderer);
+shapeRenderer.end();
+```
+
 ### 地图-防止越界
 
 当添加地图瓦片时，如果地图大于窗口边缘，当物体移动时会检测到碰撞为窗口边缘那么物体不能移动到瓦片边缘
