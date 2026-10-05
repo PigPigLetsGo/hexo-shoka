@@ -88,9 +88,43 @@ playerAngle = MathUtils.atan2(dy, dx) * MathUtils.radiansToDegrees;
 
 atan2=dy/dx(弧度)*57.2 = 角度
 
+如果player是Sprite对象
+
 ```java
 player.setRotation(playerAngle);
 ```
+
+如果player是单独对象
+
+```java
+public float getMouseAngle(OrthographicCamera camera) {
+    // 转换为屏幕坐标
+    Vector3 mouse = new Vector3(
+        Gdx.input.getX(),
+        Gdx.input.getY(),
+        0
+    );
+    camera.unproject(mouse);
+
+    float playerCenterX = x + width / 2f;
+    float playerCenterY = y + height / 2f;
+
+    // 计算角度
+    return MathUtils.atan2(mouse.y - playerCenterY, mouse.x - playerCenterX) * MathUtils.radiansToDegrees;
+}
+```
+
+设置，图像，坐标，中心，宽高，角度，图像宽高
+
+```java
+public void draw(SpriteBatch s, float angle) {
+    s.draw(texture, x, y, width / 2, height / 2,
+        width, height, 1, 1, angle,
+        0, 0, texture.getWidth(), texture.getHeight(),
+        false, false);
+}
+```
+
 
 ### 子弹
 
@@ -128,6 +162,106 @@ if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && jg <= 0.0f) {
     }
 }
 ```
+
+### 碰撞检测
+
+敌人
+
+定义成员变量
+
+```java
+private Rectangle bounds;
+```
+
+返回对象方法
+
+```java
+public Rectangle getBounds() {
+    bounds.set(x, y, width, height);
+    return bounds;
+}
+```
+
+地图碰撞
+
+地图中有很多的物体我们创建一个类来方便管理它们的类型
+
+```java
+public class Collider {
+    Rectangle bounds;
+    TileType type;
+}
+```
+
+初始化
+
+```java
+for (int row = 0; row < map.length; row++) {
+    for (int col = 0; col < map[row].length; col++) {
+        if (map[row][col] == WALL || map[row][col] == TREE) {
+            Rectangle wall = new Rectangle(
+                col * tileSize,
+                row * tileSize,
+                tileSize,
+                tileSize
+            );
+            colliders.add(new Collider(wall, map[row][col]));
+        }
+    }
+}
+```
+
+检测方法
+
+```java
+public boolean checkCollision() {
+    // 碰撞检测
+    for (Enemy e : enemies) {
+        if (player.getBounds().overlaps(e.getBounds())) {
+            return true;
+        }
+    }
+
+    for(Collider c : colliders) {
+        if (player.isJumping() && c.getType() == TileType.TREE) {
+            continue;
+        }
+        if (player.getBounds().overlaps(c.getBounds())) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+玩家移动检测碰撞
+
+```java
+// 玩家移动/碰撞检测
+public void updatePlayer(float delta) {
+    float oldPlayerY = player.getY();
+    float oldPlayerX = player.getX();
+
+    float mapHeight = map.length * tileSize;
+    float mapWidth = map[0].length * tileSize;
+
+    // 玩家移动
+    // 检测X轴碰撞恢复
+    player.removeX(delta, mapWidth);
+    if (checkCollision()) {
+        player.setX(oldPlayerX);
+    }
+    // 检测Y轴碰撞恢复
+    player.removeY(delta, mapHeight);
+    if (checkCollision()) {
+        player.setY(oldPlayerY);
+    }
+    // 玩家跳跃
+    player.jumpPre(delta);
+}
+```
+
+先检测x轴的碰撞 恢复，然后再检测y轴碰撞恢复。如果把xy轴不分开的话会导致不能滑边的情况，会卡脚
 
 ### 绘制血条
 
@@ -313,3 +447,82 @@ camera.unproject(mouse);
 ```
 
 注意：子弹逻辑如果出现问题可能需要更改判定越界逻辑，改为边界为地图大小
+
+### 跳跃
+
+定义变量
+
+```java
+// 是否跳跃
+private boolean jumping = false;
+// 跳跃高度
+private float jumpHeight = 0f;
+// 跳跃速度
+private float jumpVelocity = 0f;
+
+// 起跳速度
+private final float jumpSpeed = 500f;
+// 重力(落地时间)
+private final float gravity = 1200f;
+```
+
+实现方法
+
+位置变化：
+位置 += 速度 * 时间
+
+重力改变速度
+速度 -= 重力 * 时间
+
+```java
+public void jump() {
+    if (!jumping) {
+        jumping = true;
+        jumpVelocity = jumpSpeed;
+    }
+}
+
+public void updateJump(float delta) {
+    if (!jumping) {
+        return;
+    }
+    jumpHeight += jumpVelocity * delta;
+    jumpVelocity -= gravity * delta;
+    if (jumpHeight <= 0f) {
+        jumpHeight = 0f;
+        jumpVelocity = 0f;
+        jumping = false;
+    }
+}
+
+public void jumpPre(float delta) {
+    if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+        jump();
+    }
+    updateJump(delta);
+}
+
+
+public void draw(SpriteBatch s, float angle) {
+    s.draw(texture, x, y + jumpHeight, width / 2, height / 2,
+        width, height, 1, 1, angle,
+        0, 0, texture.getWidth(), texture.getHeight(),
+        false, false);
+}
+```
+
+绘制中 y + jumpHeight 只是修改玩家绘制位置，并不会修改玩家实际位置
+
+```text
+                玩家
+                 │
+       ┌─────────┴─────────┐
+       ↓                   ↓
+   地面位置              视觉高度
+   x / y                jumpHeight
+       │                   │
+       ↓                   ↓
+  碰撞检测             Sprite绘制
+```
+
+
