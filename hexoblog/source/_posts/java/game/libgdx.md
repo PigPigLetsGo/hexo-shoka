@@ -175,6 +175,7 @@ private Rectangle bounds;
 
 返回对象方法
 
+
 ```java
 public Rectangle getBounds() {
     bounds.set(x, y, width, height);
@@ -330,7 +331,7 @@ private final TileType[][] map = {
 
 处理
 
-```
+```java
 // 计算地图边界
 float mapHeight = map.length * tileSize;
 float mapWidth = map[0].length * tileSize;
@@ -525,4 +526,154 @@ public void draw(SpriteBatch s, float angle) {
   碰撞检测             Sprite绘制
 ```
 
+#### 跳跃穿过物体防止卡住
 
+1. 问题
+
+跳跃时允许玩家穿过树
+
+```java
+if (player.isJumping() && c.getType() == TileType.TREE) {
+    continue;
+}
+```
+
+但是这样会出现：
+
+> 跳跃 -> 进入树里面 -> 落地 -> 树恢复碰撞 -> 玩家卡在树里面
+
+2. 解决思路
+
+允许跳跃时穿树，但不允许玩家在树里面落地
+
+所以需要记录一个
+
+```java
+private float safeX;
+private float safeY;
+```
+
+表示：
+
+> 玩家最近一次没有进入树的安全位置
+
+3. Player增加安全位置
+
+```java
+private float safeX;
+private float safeY;
+```
+
+开始跳跃时记录：
+
+```java
+safeX = x;
+safeY = y;
+```
+
+4. 跳跃过程中更新安全位置
+
+玩家正在跳跃时：
+
+```java
+if (player.isJumping()) {
+
+    if (!isInsideTree()) {
+        player.setSafePosition(
+            player.getX(),
+            player.getY()
+        );
+    }
+}
+```
+
+只有不在树里面时，才更新安全位置
+
+5. 判断玩家是否进入树
+
+```java
+private boolean isInsideTree() {
+
+    for (Collider c : colliders) {
+
+        if (c.getType() != TileType.TREE) {
+            continue;
+        }
+
+        if (player.getBounds().overlaps(c.getBounds())) {
+            return true;
+        }
+    }
+
+    return false;
+}
+```
+
+返回：
+
+```text
+true  → 玩家在树里面
+false → 玩家不在树里面
+```
+
+6. 玩家落地时检查
+
+记录跳跃前的状态:
+
+```java
+boolean wasJumping = player.isJumping();
+
+player.jumpPre(delta);
+```
+
+如果发现：
+
+```java
+wasJumping && !player.isJumping()
+```
+
+说明：
+
+> 玩家刚刚落地
+
+这时检查：
+
+```java
+if (isInsideTree()) {
+    player.setX(player.getSafeX());
+    player.setY(player.getSafeY());
+}
+```
+
+如果落地时人在树里：
+
+```text
+树里面
+ ↓
+回到最近的安全位置
+```
+
+7. 最终逻辑
+
+```text
+开始跳跃
+   ↓
+记录 safeX / safeY
+   ↓
+跳跃时可以穿过树
+   ↓
+不在树里 → 更新安全位置
+   ↓
+进入树里 → 不再更新安全位置
+   ↓
+玩家落地
+   ↓
+检查是否在树里
+   ↓
+是 → 回到 safeX / safeY
+否 → 正常落地
+```
+
+核心思想
+
+> 跳跃可以穿过树，但是不能在树里面落地
