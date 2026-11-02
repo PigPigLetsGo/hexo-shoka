@@ -194,8 +194,8 @@ dota_selection_groups "0"                  // 智能选择编组 = 关闭
 dota_settings_targeted_attack_move "1"     // 智能攻击移动
 dota_settings_targeted_attack_move_radius "200"
 
-dota_settings_quick_target_attack "1"     // 快速攻击 = 关闭
-dota_settings_quick_move "1"              // 快速移动 = 关闭
+dota_settings_quick_target_attack "0"     // 快速攻击 = 关闭
+dota_settings_quick_move "1"              // 快速移动 = 开启
 
 cl_dota_alt_unit_movetodirection "0" // ALT 径直移动
 
