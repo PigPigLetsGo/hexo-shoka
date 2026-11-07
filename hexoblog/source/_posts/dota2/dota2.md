@@ -528,4 +528,290 @@ echo ############################################################
 
 ![PixPin_2026-10-14_19-40-58](../../img/PixPin_2026-10-14_19-40-58.png)
 
+# 单独设置技能可打断施法
+
+打开路径文件：E:\steam\userdata\1217691581\570\remote\cfg\dotakeys_personal.lst
+
+在文件中搜索英雄英文名称：以puck为例
+
+在AbilityPrimary3QuickCast快速施法中添加Channel字段
+
+Channel参数：
+
+- "0"打断持续施法设置跟随全局设置
+
+- "1"允许任何操作打断持续施法
+
+- "2"仅H/S可以打断持续施法
+
+"AbilityPrimary2"为传统施法
+
+"AbilityPrimary3QuickCast"为快速施法
+
+```
+"npc_dota_hero_puck"
+
+​		{
+
+​			"AbilityUltimate"
+
+​			{
+
+​				"Mode"		"-1"
+
+​			}
+
+​			"TalentUpgradeStatLeft"
+
+​			{
+
+​				"Key"		"1"
+
+​				"Mode"		"0"
+
+​			}
+
+​			"TalentUpgradeStatRight"
+
+​			{
+
+​				"Key"		"2"
+
+​				"Mode"		"0"
+
+​			}
+
+​			"TalentUpgradeAttribute"
+
+​			{
+
+​				"Key"		"3"
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilityPrimary1QuickCast"
+
+​			{
+
+​				"Key"		"Q"
+
+​				"Mode"		"1"
+
+​			}
+
+​			"AbilityPrimary2QuickCast"
+
+​			{
+
+​				"Key"		"W"
+
+​				"Mode"		"1"
+
+​			}
+
+​			"AbilityPrimary3QuickCast"
+
+​			{
+
+​				"Key"		"E"
+
+​				"Mode"		"1"
+
+​				"Channel"		"1"
+
+​			}
+
+​			"AbilitySecondary1QuickCast"
+
+​			{
+
+​				"Key"		"D"
+
+​				"Mode"		"1"
+
+​			}
+
+​			"AbilitySecondary2QuickCast"
+
+​			{
+
+​				"Key"		"F"
+
+​				"Mode"		"1"
+
+​			}
+
+​			"AbilityUltimateQuickCast"
+
+​			{
+
+​				"Key"		"R"
+
+​				"Mode"		"1"
+
+​			}
+
+​			"AbilityPrimary1AutoCastAlternate"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilityPrimary2AutoCastAlternate"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilityPrimary1AutoCastAlternate2"
+
+​			{
+
+​				"Key"		"q"
+
+​				"Modifier"		"ALT"
+
+​				"Mode"		"0"
+
+​				"ChannelCancel"		"ALT"
+
+​			}
+
+​			"AbilityPrimary2AutoCastAlternate2"
+
+​			{
+
+​				"Key"		"w"
+
+​				"Modifier"		"ALT"
+
+​				"Mode"		"0"
+
+​				"ChannelCancel"		"ALT"
+
+​			}
+
+​			"AbilityPrimary3AutoCastAlternate2"
+
+​			{
+
+​				"Key"		"e"
+
+​				"Modifier"		"ALT"
+
+​				"Mode"		"0"
+
+​				"ChannelCancel"		"ALT"
+
+​			}
+
+​			"AbilitySecondary1AutoCastAlternate2"
+
+​			{
+
+​				"Key"		"d"
+
+​				"Modifier"		"ALT"
+
+​				"Mode"		"0"
+
+​				"ChannelCancel"		"ALT"
+
+​			}
+
+​			"AbilitySecondary2AutoCastAlternate2"
+
+​			{
+
+​				"Key"		"f"
+
+​				"Modifier"		"ALT"
+
+​				"Mode"		"0"
+
+​				"ChannelCancel"		"ALT"
+
+​			}
+
+​			"AbilityUltimateAutoCastAlternate2"
+
+​			{
+
+​				"Key"		"r"
+
+​				"Modifier"		"ALT"
+
+​				"Mode"		"0"
+
+​				"ChannelCancel"		"ALT"
+
+​			}
+
+​			"AbilityPrimary1AutoCast"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilityPrimary2AutoCast"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilityPrimary3AutoCast"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilitySecondary1AutoCast"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilitySecondary2AutoCast"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​			"AbilityUltimateAutoCast"
+
+​			{
+
+​				"Mode"		"0"
+
+​			}
+
+​		}
+```
+
+# 卡频道解决方案
+
+关闭Dota2，删除本地文件：\Steam\userdata\<你的steamid>\570\remote\cfg\chat.cfg，取消Dota2云同步，进入游戏看频道是否存在如果存在就退出频道，关闭Dota2开启云同步，开始游戏时选择同步选择本地。进入游戏
+
+如何避免？
+
+- 进入一两个频道可能不会卡频道但是多个频道如果没有退出频道就关闭Dota2此时云同步就可能会卡频道，或者突然掉线此时没退出的多个频道也可能会卡频道，所以避免手段就是在不是突然掉线情况下尽量退出多个频道，要么只留一两个，要么一个不留
+
+
+
 ---d-kcU6HQA40W-k-c8p04dw4VL-x.com

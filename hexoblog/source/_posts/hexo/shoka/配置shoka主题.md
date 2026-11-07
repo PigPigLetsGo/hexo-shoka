@@ -62,27 +62,29 @@ tags:
 
 7.  修改hexo的package.json的文件内容，将shoka的example目录中的package.json文件的内容拷贝到hexo的package.json中即可
 
-8.  修改完package.json文件内容后执行下面的命令降级hexo
+8. 修改完package.json文件内容后执行下面的命令降级hexo
 
-    -  如果已经有hexo了那么重新全局安装hexo 5.4.2
+   -  如果已经有hexo了那么重新全局安装hexo4.2.1
 
-       ```bash
-       npm install -g hexo@5.4.2
-       ```
+      ```bash
+      npm install -g hexo@4.2.1
+      ```
 
-    -  如果没有hexo那么然后在hexo目录下更新依赖 (电脑没安装过hexo的推荐)
+   - 如果没有hexo那么然后在hexo目录下更新依赖 (电脑没安装过hexo的推荐)
 
-       ```bash
-       npm install
-       ```
+      ```bash
+      npm install --force
+      ```
 
-    -  然后重新生成就可以解决问题了
+      - 如果提示npm install hexo --save，那么说明需要下载这个依赖，下载的时候注意加上版本号否则会造成版本不兼容问题npm install hexo@4.2.1 --save
 
-       ```bash
-       hexo clean && hexo g && hexo s
-       ```
+   -  然后重新生成就可以解决问题了
 
-       注意：浏览器可能有缓存，记得刷新缓存
+      ```bash
+      hexo clean && hexo g && hexo s
+      ```
+
+      注意：浏览器可能有缓存，记得刷新缓存
 
 9.  然后将 shoka中的 example\source 目录中的 `_data` ，assets， friends 这几个目录放到hexo的source目录中，注意你要配置友情链接可以看friends目录中的说明，这个目录就是友情链接的配置文件，其余的如下：
 
