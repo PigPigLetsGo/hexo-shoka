@@ -548,7 +548,7 @@ Channel参数：
 
 "AbilityPrimary3QuickCast"为快速施法
 
-```
+```tex
 "npc_dota_hero_puck"
 
 ​		{
