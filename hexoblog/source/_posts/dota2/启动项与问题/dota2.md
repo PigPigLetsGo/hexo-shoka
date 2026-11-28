@@ -564,7 +564,7 @@ echo ############################################################
 
 # 单独设置技能可打断施法
 
-打开路径文件：E:\steam\userdata\1217691581\570\remote\cfg\dotakeys_personal.lst
+打开路径文件：E:\steam\userdata\你的steamid\570\remote\cfg\dotakeys_personal.lst
 
 在文件中搜索英雄英文名称：以puck为例
 
