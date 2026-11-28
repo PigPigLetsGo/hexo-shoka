@@ -25,23 +25,23 @@ tags:
 
 持续施法的小技能，比如莱恩E对线要抽取敌人的蓝量为自己所用，但是有时候敌人会因为你抽蓝而趁机上来集火你，普通情况下你需要按S然后往后跑，这样会慢一个时差可能会送掉，而设置任何操作可打断可以直接往后跑
 
-<video src="../../../../../../lion.mp4" controls=""></video>
+<video src="../../../img/lion.mp4" controls=""></video>
 
 ### 2.按住Alt快速对自身施法/持续显示技能或物品范围
 
 按住Alt按技能或物品时，会快速对自身施法
 
-<video src="../../../../../../altjineng.mp4" controls=""></video>
+<video src="../../../img/altjineng.mp4" controls=""></video>
 
 按住Alt + 鼠标右键点击 英雄面板上的剑的图标(范围比较大不是很准确也可以)就可以持续显示攻击范围，如果是技能同理，物品同理
 
-<video src="../../../../../../altfanwei.mp4" controls=""></video>
+<video src="../../../img/altfanwei.mp4" controls=""></video>
 
 ### 3.视野机制
 
 Dota2中视野按层级划分，树的高度在高坡之上而在高台之下，你站在平地是一个级别，高坡是另一个级别，高层级往底下看能看到所有(站得高看得远)
 
-<video src="../../../../../../shiye.mp4" controls=""></video>
+<video src="../../../img/shiye.mp4" controls=""></video>
 
 ### 4.运用shift
 
